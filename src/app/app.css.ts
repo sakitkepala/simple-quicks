@@ -68,3 +68,8 @@ export const searchBar = style({
   height: "3.625rem",
   backgroundColor: color.primaryGray20,
 });
+
+export const mainContent = style({
+  position: "relative",
+  zIndex: 0,
+});
