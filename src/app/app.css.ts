@@ -20,6 +20,10 @@ export const color = {
   primaryGray10: createVar(),
   primaryGray20: createVar(),
   primaryGray30: createVar(),
+  indicatorOrange: createVar(),
+  indicatorPurple: createVar(),
+  indicatorRed: createVar(),
+  indicatorYellow: createVar(),
 };
 
 export const fontFamilyLato = createVar();
@@ -31,6 +35,10 @@ export const vars = style({
     [color.primaryGray10]: "rgba(224, 224, 224, 1)",
     [color.primaryGray20]: "rgba(130, 130, 130, 1)",
     [color.primaryGray30]: "rgba(51, 51, 51, 1)",
+    [color.indicatorOrange]: "rgba(248, 183, 107, 1)",
+    [color.indicatorPurple]: "rgba(135, 133, 255, 1)",
+    [color.indicatorRed]: "rgba(235, 87, 87, 1)",
+    [color.indicatorYellow]: "rgba(242, 201, 76, 1)",
     [fontFamilyLato]: "'Lato', sans-serif",
   },
 });

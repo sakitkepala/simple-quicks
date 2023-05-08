@@ -1,4 +1,9 @@
 import * as React from "react";
+
+import IconRead from "../icons/read";
+import IconQna from "../icons/qna";
+import IconLightning from "../icons/lightning";
+
 import * as styles from "./quick-menus.css";
 import { clsx } from "clsx";
 
@@ -6,24 +11,35 @@ const menus: {
   id: string;
   label: string;
   optionIcon: React.ReactElement;
+  optionColor: "orange" | "purple";
   content: React.ReactElement;
 }[] = [
   {
     id: "task",
     label: "Task",
-    optionIcon: <span>itask</span>,
+    optionIcon: <IconRead size="32" />,
+    optionColor: "orange",
     content: (
-      <div className={styles.menuPanel}>
+      <div>
         <h2>Task</h2>
+        {/* DUMMY */}
+        <ul>
+          {[...new Array(200)]
+            .map((_, i) => i + 1)
+            .map((item) => (
+              <li key={item}>mantap</li>
+            ))}
+        </ul>
       </div>
     ),
   },
   {
     id: "inbox",
     label: "Inbox",
-    optionIcon: <span>iinbox</span>,
+    optionIcon: <IconQna size="32" />,
+    optionColor: "purple",
     content: (
-      <div className={styles.menuPanel}>
+      <div>
         <h2>Inbox</h2>
       </div>
     ),
@@ -34,11 +50,11 @@ function QuickMenus() {
   const [isOpen, setOpen] = React.useState(false);
   const [openTab, setOpenTab] = React.useState<undefined | string>();
 
-  const availableMenuOptions = menus.filter((menu) => menu.id !== openTab);
+  const menuOptions = menus.filter((menu) => menu.id !== openTab);
   const openedPanel = menus.find((menu) => menu.id === openTab) || null;
 
   return (
-    <div className={styles.menuContainer}>
+    <div className={styles.quickMenu}>
       {openedPanel && (
         <div key={openedPanel.id} className={styles.menuPanelContainer}>
           {openedPanel.content}
@@ -46,19 +62,19 @@ function QuickMenus() {
       )}
 
       <div
-        className={clsx(styles.container, {
-          [styles.containerOpen]: Boolean(openTab),
+        className={clsx(styles.optionContainer, {
+          [styles.optionContainerOpen]: Boolean(openTab),
         })}
       >
         {isOpen && (
-          <div className={styles.menuOptions}>
-            {availableMenuOptions.map((menu) => (
+          <div className={styles.options}>
+            {menuOptions.map((menu) => (
               <button
                 key={menu.id}
-                className={styles.menuTrigger}
+                className={styles.optionButton[menu.optionColor]}
                 onClick={() => setOpenTab(menu.id)}
               >
-                {!openTab && <span className={styles.menuTriggerLabel}>{menu.label}</span>}
+                {!openTab && <span className={styles.optionButtonLabel}>{menu.label}</span>}
                 <span>{menu.optionIcon}</span>
               </button>
             ))}
@@ -67,7 +83,7 @@ function QuickMenus() {
 
         <div>
           <button
-            className={styles.quickTrigger}
+            className={styles.quickButton[openedPanel?.optionColor || "base"]}
             onClick={() =>
               setOpen((o) => {
                 const next = !o;
@@ -78,7 +94,7 @@ function QuickMenus() {
               })
             }
           >
-            {isOpen && openedPanel ? openedPanel.label : <>Quick</>}
+            {isOpen && openedPanel ? openedPanel.optionIcon : <IconLightning size="56" />}
           </button>
         </div>
       </div>
