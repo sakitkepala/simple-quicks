@@ -14,8 +14,12 @@ export const quickMenu = style({
   justifyContent: "flex-end",
 });
 
-export const menuPanelContainer = style({
-  vars: { "--scrollbar-width": "12px" },
+export const menuPanel = style({
+  vars: {
+    "--panel-padding-block": "1.5rem",
+    "--panel-padding-inline": "2rem",
+    "--scrollbar-width": "12px",
+  },
 
   flexGrow: 1,
 

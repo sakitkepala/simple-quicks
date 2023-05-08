@@ -34,7 +34,7 @@ export const vars = style({
     [color.primaryBlue]: "rgba(47, 128, 237, 1)",
     [color.primaryGray10]: "rgba(224, 224, 224, 1)",
     [color.primaryGray20]: "rgba(130, 130, 130, 1)",
-    [color.primaryGray30]: "rgba(51, 51, 51, 1)",
+    [color.primaryGray30]: "rgba(79, 79, 79, 1)",
     [color.indicatorOrange]: "rgba(248, 183, 107, 1)",
     [color.indicatorPurple]: "rgba(135, 133, 255, 1)",
     [color.indicatorRed]: "rgba(235, 87, 87, 1)",

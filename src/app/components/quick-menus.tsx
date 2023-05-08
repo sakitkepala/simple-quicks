@@ -1,4 +1,5 @@
 import * as React from "react";
+import { Inbox } from "../features/inbox";
 
 import IconRead from "../icons/read";
 import IconQna from "../icons/qna";
@@ -38,11 +39,7 @@ const menus: {
     label: "Inbox",
     optionIcon: <IconQna size="32" />,
     optionColor: "purple",
-    content: (
-      <div>
-        <h2>Inbox</h2>
-      </div>
-    ),
+    content: <Inbox />,
   },
 ];
 
@@ -56,7 +53,7 @@ function QuickMenus() {
   return (
     <div className={styles.quickMenu}>
       {openedPanel && (
-        <div key={openedPanel.id} className={styles.menuPanelContainer}>
+        <div key={openedPanel.id} className={styles.menuPanel}>
           {openedPanel.content}
         </div>
       )}
