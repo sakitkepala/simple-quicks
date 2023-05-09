@@ -2,6 +2,7 @@ import * as React from "react";
 
 import { ScrollArea } from "../../components/scrollarea";
 import { ConversationItem } from "./conversation";
+import { Divider } from "../../components/divider";
 
 import IconSearch from "../../icons/search";
 
@@ -31,7 +32,7 @@ function Inbox() {
         <ScrollArea>
           {convs.map((item, i) => (
             <React.Fragment key={item.id}>
-              {i > 0 && <hr className={styles.divider} />}
+              {i > 0 && <Divider />}
               <ConversationItem
                 title={item.title}
                 date={item.date}

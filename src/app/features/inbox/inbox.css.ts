@@ -52,9 +52,3 @@ export const conversationList = style({
   paddingRight: "calc(var(--panel-padding-inline) - var(--scrollbar-width))",
   paddingBottom: "var(--panel-padding-block)",
 });
-
-export const divider = style({
-  height: 1,
-  border: "none",
-  backgroundColor: color.primaryGray20,
-});
