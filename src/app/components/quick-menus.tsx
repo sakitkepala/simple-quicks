@@ -1,5 +1,6 @@
 import * as React from "react";
 import { Inbox } from "../features/inbox";
+import { Task } from "../features/task";
 
 import IconRead from "../icons/read";
 import IconQna from "../icons/qna";
@@ -20,19 +21,7 @@ const menus: {
     label: "Task",
     optionIcon: <IconRead size="32" />,
     optionColor: "orange",
-    content: (
-      <div>
-        <h2>Task</h2>
-        {/* DUMMY */}
-        <ul>
-          {[...new Array(200)]
-            .map((_, i) => i + 1)
-            .map((item) => (
-              <li key={item}>mantap</li>
-            ))}
-        </ul>
-      </div>
-    ),
+    content: <Task />,
   },
   {
     id: "inbox",

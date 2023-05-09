@@ -29,7 +29,7 @@ export const menuPanel = style({
   overflow: "hidden",
 
   border: "solid 1px rgba(189, 189, 189, 1)",
-  borderRadius: 4,
+  borderRadius: 5,
   backgroundColor: "#ffffff",
 });
 
