@@ -1,5 +1,6 @@
 import * as React from "react";
 
+import { motion } from "framer-motion";
 import { ScrollArea } from "../../components/scrollarea";
 import { Divider } from "../../components/divider";
 import { TaskItem } from "./task-item";
@@ -9,7 +10,7 @@ import * as styles from "./task.css";
 function Task() {
   const tasks = [...new Array(20)].map((_, i) => i + 1);
   return (
-    <div className={styles.layout}>
+    <motion.div className={styles.layout} initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
       <div className={styles.toolbar}>
         <div>
           {/* TODO: radix ui's select */}
@@ -32,7 +33,7 @@ function Task() {
           </div>
         </ScrollArea>
       </div>
-    </div>
+    </motion.div>
   );
 }
 

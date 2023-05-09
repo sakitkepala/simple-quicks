@@ -1,4 +1,5 @@
 import * as React from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { Inbox } from "../features/inbox";
 import { Task } from "../features/task";
 
@@ -32,6 +33,29 @@ const menus: {
   },
 ];
 
+const variantsPanel = {
+  open: { y: 0, opacity: 1 },
+  closed: { y: 40, opacity: 0 },
+};
+
+const variantsOptions = {
+  open: {
+    transition: {
+      staggerChildren: 0.07,
+      staggerDirection: -1,
+      delayChildren: 0.2,
+    },
+  },
+  closed: {
+    transition: { staggerChildren: 0.05, staggerDirection: -1 },
+  },
+};
+
+const variantsOptionItem = {
+  open: { x: 0, opacity: 1 },
+  closed: { x: 50, opacity: 0 },
+};
+
 function QuickMenus() {
   const [isOpen, setOpen] = React.useState(false);
   const [openTab, setOpenTab] = React.useState<undefined | string>();
@@ -41,31 +65,49 @@ function QuickMenus() {
 
   return (
     <div className={styles.quickMenu}>
-      {openedPanel && (
-        <div key={openedPanel.id} className={styles.menuPanel}>
-          {openedPanel.content}
-        </div>
-      )}
+      <AnimatePresence>
+        {openedPanel && (
+          <motion.div
+            className={styles.menuPanel}
+            variants={variantsPanel}
+            initial="closed"
+            animate="open"
+            exit="closed"
+          >
+            {openedPanel.content}
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       <div
         className={clsx(styles.optionContainer, {
           [styles.optionContainerOpen]: Boolean(openTab),
         })}
       >
-        {isOpen && (
-          <div className={styles.options}>
-            {menuOptions.map((menu) => (
-              <button
-                key={menu.id}
-                className={styles.optionButton[menu.optionColor]}
-                onClick={() => setOpenTab(menu.id)}
-              >
-                {!openTab && <span className={styles.optionButtonLabel}>{menu.label}</span>}
-                <span>{menu.optionIcon}</span>
-              </button>
-            ))}
-          </div>
-        )}
+        <AnimatePresence>
+          {isOpen && (
+            <motion.div
+              className={styles.options}
+              variants={variantsOptions}
+              initial="closed"
+              animate="open"
+              exit="closed"
+            >
+              {menuOptions.map((menu) => (
+                <motion.button
+                  key={menu.id}
+                  className={styles.optionButton[menu.optionColor]}
+                  onClick={() => setOpenTab(menu.id)}
+                  variants={variantsOptionItem}
+                  whileHover={{ y: -3 }}
+                >
+                  {!openTab && <span className={styles.optionButtonLabel}>{menu.label}</span>}
+                  <span>{menu.optionIcon}</span>
+                </motion.button>
+              ))}
+            </motion.div>
+          )}
+        </AnimatePresence>
 
         <div>
           <button

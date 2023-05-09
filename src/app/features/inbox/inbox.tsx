@@ -1,5 +1,6 @@
 import * as React from "react";
 
+import { motion } from "framer-motion";
 import { ScrollArea } from "../../components/scrollarea";
 import { ConversationItem } from "./conversation";
 import { Divider } from "../../components/divider";
@@ -18,7 +19,7 @@ function Inbox() {
     isUnread: i === 0,
   }));
   return (
-    <div className={styles.layout}>
+    <motion.div className={styles.layout} initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
       <div className={styles.searchBar}>
         <div className={styles.field}>
           <input type="text" className={styles.searchBox} placeholder="Search" />
@@ -44,7 +45,7 @@ function Inbox() {
           ))}
         </ScrollArea>
       </div>
-    </div>
+    </motion.div>
   );
 }
 

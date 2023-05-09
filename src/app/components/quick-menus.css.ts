@@ -64,6 +64,15 @@ export const quickButtonBase = style({
   display: "flex",
   justifyContent: "center",
   alignItems: "center",
+
+  transition: "background-color 0.35s ease, transform 0.25s ease",
+
+  ":hover": {
+    transform: "translateY(-3px)",
+  },
+  ":active": {
+    transform: "translateY(2px)",
+  },
 });
 
 export const quickButton = styleVariants({
@@ -90,6 +99,15 @@ export const optionButtonBase = style({
   alignItems: "center",
 
   fontSize: "inherit",
+
+  // transition: "transform 0.25s ease",
+
+  // ":hover": {
+  //   transform: "translateY(-3px)",
+  // },
+  // ":active": {
+  //   transform: "translateY(2px)",
+  // },
 });
 
 export const optionButton = styleVariants({
