@@ -99,15 +99,6 @@ export const optionButtonBase = style({
   alignItems: "center",
 
   fontSize: "inherit",
-
-  // transition: "transform 0.25s ease",
-
-  // ":hover": {
-  //   transform: "translateY(-3px)",
-  // },
-  // ":active": {
-  //   transform: "translateY(2px)",
-  // },
 });
 
 export const optionButton = styleVariants({

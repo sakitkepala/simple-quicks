@@ -16,6 +16,9 @@ export const checkboxCol = style({
 
 export const main = style({
   flexGrow: 1,
+  display: "flex",
+  flexDirection: "column",
+  gap: "1rem",
 });
 
 export const header = style({
@@ -39,4 +42,30 @@ export const title = style({
   flexGrow: 1,
   fontSize: "1rem",
   fontWeight: 700,
+});
+
+export const details = style({
+  display: "flex",
+  flexDirection: "column",
+  gap: "0.75rem",
+});
+
+export const detailItem = style({
+  display: "flex",
+  gap: "1.25rem",
+});
+
+export const detailIcon = style({
+  flexShrink: 0,
+  display: "flex",
+  justifyContent: "center",
+  color: color.primaryBlue,
+});
+
+export const detailContent = style({
+  flexGrow: 1,
+  display: "flex",
+  flexDirection: "column",
+  gap: "0.75rem",
+  maxWidth: "32.5rem",
 });
